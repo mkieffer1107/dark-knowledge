@@ -71,12 +71,12 @@ $$
 
 Cool. The point here is that a one-hot encoded **hard target** only produces a single term in the loss gradient corresponding to the output neuron of the correct class. Using **soft targets**, on the other hand, contains multiple terms from the output layer. In a dense network, each neuron in a layer is connected to each neuron in the preceding layer. In addition, the softmax function involves all logit neurons via the partition function. So even though the **hard target** setup begins backprop exclusively in the output neuron of the correct class, it will propagate updates through the other classes' logit neurons and throughout the rest of the network. At the end of the day, though, this primarily drives the model to increase the probability of the correct class.
 
-<img src="./output.jpg" alt="softmax" style="width:600px;"/>
 
 
 In contrast, by using **soft targets**, the loss gradient will include more than just the correct output neuron term. This means that backprop will send signal through neurons of the correct and incorrect output neurons, leading to more updates in the output layer connections.
 
 So we see that **soft targets** produce a more informative gradient than one-hot encoded **hard targets**. Because the gradient contains more output terms in it, 
+
 
 
 
