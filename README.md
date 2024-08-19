@@ -51,13 +51,12 @@ Here's where things get cool. Suppose that we've already trained a large model o
 
 Why? For starters, we assume that we were provided with labeled training data. This means that the large model, and any subsequent model, has a set of one-hot encoded vectors to train on. These **hard targets** provide information about the correct labels, but nothing about the incorrect labels. For example, consider a single sample where $t_c = 1$ and $T = 1$, 
 
-$$
 \begin{align*}
 \mathcal{L}_{\text{cross-entropy}} = -\sum_{i=1}^d t_{i} \log p_{i} &= - \left[t_{1} \log p_{1} + t_{2} \log p_{2} + \ldots + t_{c} \log p_{c} + \ldots + t_{d} \log p_{d} \right] \\
 &= - \left[0 \cdot \log p_{1} + 0 \cdot \log p_{2} + \ldots + 1 \cdot \log p_{c} + \ldots + 0 \cdot \log p_{d} \right] \\
 &= - \log p_{c} 
 \end{align*}
-$$
+
 
 Then during backprop,
 
